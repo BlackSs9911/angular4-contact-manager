@@ -1,0 +1,17 @@
+<md-toolbar color="primary">
+    <span>Contact Manager</span>
+</md-toolbar>
+<a md-fab class="btn-contact_add" (click)="changeView($event)"><i class="material-icons">person_add</i></a>
+<md-list>
+  <md-list-item class="each-contact" *ngFor="let contact of contacts">
+    <img md-list-avatar src="https://robohash.org/{{contact.first_name}}">
+    <h4 md-line>{{contact.first_name}} {{contact.last_name}}</h4>
+    <p md-line class="demo-2"> 
+      <button md-button>{{contact.email}}</button>
+      <button md-button>{{contact.phone}}</button>
+    </p>
+    <i class="material-icons orange600" (click)="destroy(contact)">delete</i>
+  </md-list-item>
+  <md-divider></md-divider>
+</md-list>
+

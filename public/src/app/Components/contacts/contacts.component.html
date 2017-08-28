@@ -1,0 +1,2 @@
+<app-list-contacts *ngIf="isListView"  (destroyContactEvent)="destroy($event)" (changeViewEvent)="toggleView($event)" [contacts]="contacts"></app-list-contacts>
+<app-create-contact *ngIf="!isListView" (createNewContactEvent)="create($event)" (changeViewEvent)="toggleView($event)"></app-create-contact>

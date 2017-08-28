@@ -1,0 +1,6 @@
+.btn-contact_add{
+    position: fixed;
+    right: 10px;
+    z-index: 9;
+    top: 30px;
+}

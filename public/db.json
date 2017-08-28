@@ -1,0 +1,40 @@
+{
+  "contacts":[
+      {
+        "first_name": "Rollins",
+        "last_name": "Welch",
+        "email": "rollinswelch@rodemco.com",
+        "phone": "+94 (881) 426-2334"
+      },
+      {
+        "first_name": "Debora",
+        "last_name": "Hickman",
+        "email": "deborahickman@rodemco.com",
+        "phone": "+94 (882) 585-2704"
+      },
+      {
+        "first_name": "Holder",
+        "last_name": "Weiss",
+        "email": "holderweiss@rodemco.com",
+        "phone": "+94 (852) 579-3341"
+      },
+      {
+        "first_name": "Hensley",
+        "last_name": "Eaton",
+        "email": "hensleyeaton@rodemco.com",
+        "phone": "+94 (927) 480-2669"
+      },
+      {
+        "first_name": "Dyer",
+        "last_name": "Walker",
+        "email": "dyerwalker@rodemco.com",
+        "phone": "+94 (835) 519-3621"
+      },
+      {
+        "first_name": "Aurelia",
+        "last_name": "Peck",
+        "email": "aureliapeck@rodemco.com",
+        "phone": "+94 (818) 462-3878"
+      }
+    ]
+}

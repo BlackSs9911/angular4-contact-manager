@@ -1,0 +1,32 @@
+<md-toolbar color="primary">
+    <a md-button (click)="changeView($event)"><i class="material-icons">arrow_back</i></a>
+    <span class="title-margin_left">Add New Contact</span>
+</md-toolbar>
+
+<form class="create-contact-form" [formGroup]="createForm" (ngSubmit)="create(createForm.value)">
+    <md-input-container class="first_name-container input-full-width" [ngClass]="{'has-error':!createForm.controls['first_name'].valid && createForm.controls['first_name'].touched}">
+        <input mdInput [formControl]="createForm.controls['first_name']"  name="first_name" required  placeholder="First name">
+        <div *ngIf="createForm.controls['first_name'].hasError('required') && createForm.controls['first_name'].touched" class="first_name-required-alert alert alert-danger">You must include First name.</div>
+        <div *ngIf="createForm.controls['first_name'].hasError('minlength') && createForm.controls['first_name'].touched" class="first_name-minlength-alert alert alert-danger">Your first name must be at least 3 characters long</div>
+        <div *ngIf="createForm.controls['first_name'].hasError('maxlength') && createForm.controls['first_name'].touched" class="first_name-maxlength-alert alert alert-danger">Your first name cannot exceed 10 characters.</div>
+    </md-input-container>
+    <md-input-container class="last_name-container input-full-width" [ngClass]="{'has-error':!createForm.controls['last_name'].valid && createForm.controls['last_name'].touched}">
+        <input mdInput [formControl]="createForm.controls['last_name']"  name="last_name" required  placeholder="Last name">
+        <div *ngIf="createForm.controls['last_name'].hasError('required') && createForm.controls['last_name'].touched" class="last_name-required-alert alert alert-danger">You must include Last name.</div>
+        <div *ngIf="createForm.controls['last_name'].hasError('minlength') && createForm.controls['last_name'].touched" class="first_name-minlength-alert alert alert-danger">Your last name must be at least 3 characters long</div>
+        <div *ngIf="createForm.controls['last_name'].hasError('maxlength') && createForm.controls['last_name'].touched" class="first_name-maxlength-alert alert alert-danger">Your last name cannot exceed 10 characters.</div>
+    </md-input-container>
+    <md-input-container class="email-container input-full-width" [ngClass]="{'has-error':!createForm.controls['email'].valid && createForm.controls['email'].touched}">
+        <input mdInput [formControl]="createForm.controls['email']"  name="email"  email required  placeholder="Email">
+        <div *ngIf="createForm.controls['email'].hasError('required') && createForm.controls['email'].touched" class="email-required-alert alert alert-danger">You must include an Email.</div>
+        <div *ngIf="createForm.controls['email'].hasError('email') && createForm.controls['email'].touched" class="alert alert-danger">Invalid Email address.</div>
+    </md-input-container>
+    <md-input-container class="phone-container input-full-width" [ngClass]="{'has-error':!createForm.controls['phone'].valid && createForm.controls['phone'].touched}">
+        <input mdInput [formControl]="createForm.controls['phone']"  name="phone" required   placeholder="Phone Number">
+        <div *ngIf="createForm.controls['phone'].hasError('required') && createForm.controls['phone'].touched" class="phone-required-alert alert alert-danger">You must include a Phone Number.</div>
+        <!-- <div *ngIf="createForm.controls['phone'].hasError('minlength') && createForm.controls['phone'].touched" class="alert alert-danger">Your Phone Number must be at least 9 characters long</div>
+        <div *ngIf="createForm.controls['phone'].hasError('maxlength') && createForm.controls['phone'].touched" class="alert alert-danger">Your Phone Number cannot exceed 10 characters.</div> -->
+        <div *ngIf="createForm.controls['phone'].hasError('pattern') && createForm.controls['phone'].touched" class="alert alert-danger">You Must Enter Valid Phone Number !</div>
+    </md-input-container>
+    <button type="submit" md-raised-button class="create-contact-submit" [disabled]="!createForm.valid">Create Contact</button>
+</form>

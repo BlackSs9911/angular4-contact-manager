@@ -1,0 +1,18 @@
+.title-margin_left{
+    margin-left: 20px;
+}
+
+.input-full-width {
+  width: 100%;
+}
+
+.create-contact-form {
+        padding: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.create-contact-submit {
+    float: right;
+    margin-top: 20px;
+}
