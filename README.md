@@ -8,11 +8,11 @@ Create Contact
 Delete Contact
 
 For configuration
-Install
-MonogoDb
-Nodejs
-Angular4 CLI
-Nodemon
+Install,
+MonogoDb,
+Nodejs,
+Angular4 CLI,
+Nodemon  
 
 1 Mongodb -> mongod
    DataCollection : contacts
