@@ -39,17 +39,21 @@ app.use(function(req, res, next) {
     next();
 });
 
-// Route
-// Get contacts
+/**
+ * Create New contact
+ */
 app.get('/contacts', (req, res, next) =>{ 
     Contact.find({}, (err, contacts)=>{
         return res.json(contacts);
     });
 })
-// POST Contacts
+
+/**
+ * Create new contact
+ */
 app.post('/contacts',(req, res, next) =>{
     delete req.body._id
-    console.log('mad_msg__ Server > POST > contact', req.body);
+    console.log('Server > POST > contact', req.body);
     Contact.create(req.body, (err,contact)=>{
         if(err){
             return res.json(err);
@@ -59,10 +63,14 @@ app.post('/contacts',(req, res, next) =>{
         }
     });
 })
+
+/**
+ * Delete contact
+ */
 app.delete('/contacts/:id', (req, res, next)=> {
     let contactId = req.params.id;
     // TODO should remove and for dev for testing e2e
-    console.log('mad_msg__ Server > DELETE ',  contactId); 
+    console.log('Server > DELETE ',  contactId); 
     if(contactId=='all'){
         Contact.remove();
     }
@@ -74,24 +82,13 @@ app.delete('/contacts/:id', (req, res, next)=> {
     
 })
 
-app.put('/contacts/:id',(req, res, next)=>{
-    let contactId =  req.params.id;
-    console.log('mad_msg__ Server > PUT ', contactId);
-    Contact.update({_id:contactId},req.body,(err, raw)=>{
-        if(err){
-            return res.json(err);
-        }
-        else{
-            return res.json(raw);
-        }
-    })
+
+/**
+ * Allow to Angular Project
+ */
+app.all("/", (req, res, next) => {
+    res.sendfile(path.resolve("./public/dist/index.html"));
 })
 
- 
-
-// app.all("*", (req, res, next) => {
-//     res.sendfile(path.resolve("./public/dist/index.html"));
-// })
-
-
+// Configure the node server
 app.listen(1337, () => console.log("Server is running 1337"))
